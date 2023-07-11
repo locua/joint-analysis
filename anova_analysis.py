@@ -101,7 +101,7 @@ plt.show()
 
 # Define model
 # 'C()' indicates that we want to treat the variables as categorical
-# pd.set_option('display.float_format', '{:.3f}'.format)
+pd.set_option('display.float_format', '{:.3f}'.format)
 formula_RT = 'rt ~ C(group) + C(session_number) + C(group):C(session_number)'
 model = ols(formula_RT, data=df_roi).fit()
 
@@ -110,7 +110,7 @@ anova_table = sm.stats.anova_lm(model, typ=2)
 print('**** RT anova model ****')
 print('Formula: ', formula_RT, '\n')
 print(anova_table)
-# pd.reset_option('display.float_format')
+pd.reset_option('display.float_format')
 
 # Plot for AAI effects
 sns.set(style="whitegrid")
