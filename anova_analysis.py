@@ -102,11 +102,13 @@ plt.show()
 # Define model
 # 'C()' indicates that we want to treat the variables as categorical
 # pd.set_option('display.float_format', '{:.3f}'.format)
-model = ols('rt ~ C(group) + C(session_number) + C(group):C(session_number)', data=df_roi).fit()
+formula_RT = 'rt ~ C(group) + C(session_number) + C(group):C(session_number)'
+model = ols(formula_RT, data=df_roi).fit()
 
 # Create anova table with stats
 anova_table = sm.stats.anova_lm(model, typ=2)
 print('**** RT anova model ****')
+print('Formula: ', formula_RT, '\n')
 print(anova_table)
 # pd.reset_option('display.float_format')
 
@@ -124,10 +126,12 @@ plt.show()
 # Define model
 # 'C()' indicates that we want to treat the variables as categorical
 # pd.set_option('display.float_format', '{:.3f}'.format)
-model = ols('mean_aai ~ C(group) + C(session_number) + C(group):C(session_number)', data=df_roi).fit()
+formula_AAI = 'mean_aai ~ C(group) + C(session_number) + C(group):C(session_number)'
+model = ols(formula_AAI, data=df_roi).fit()
 
 # Create anova table with stats
 anova_table = sm.stats.anova_lm(model, typ=2)
 print('\n\n**** mean AAI anova model ****')
+print('Formula: ', formula_AAI, '\n')
 print(anova_table)
 # pd.reset_option('display.float_format')
