@@ -1,3 +1,4 @@
 # Join analysis for neurofeedback project
 
-Main analysis done in analysis.ipynb.
+- main analysis done in analysis.ipynb.
+- can be run as single script: `anova_analysis.py`
